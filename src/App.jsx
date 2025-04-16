@@ -10,6 +10,7 @@ import ContactUs from './Componants/ContactUs';
 import Sidebar from './Componants/Sidebar';
 import Internships from './Componants/Internships';
 import Government from './Componants/Government';
+import JobPost from './Componants/Jobpost';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/jobinDetails/:jobId" element={<JobssInDetail />} /> {/*Dynamic route with jobId */}
         <Route path="/Internships" element={<Internships />} />
         <Route path="/Government" element={<Government />} />
+        <Route path="/JobPost" element={<JobPost />} />
 
       </Routes>
       <Footer />

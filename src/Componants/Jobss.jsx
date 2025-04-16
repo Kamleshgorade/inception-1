@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import JobPost from './Jobpost';
+// import JobPost from './Jobpost';
 
 const Jobss = () => {
     const [jobs, setJobs] = useState([]);
@@ -186,7 +186,7 @@ const Jobss = () => {
 
                 </div>
             </div>
-            <JobPost />
+            {/* <JobPost /> */}
         </>
     );
 };

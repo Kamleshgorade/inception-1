@@ -40,12 +40,12 @@ const Sidebar = () => {
                         </li>
                         <li className="mb-3">
                             <Link to="/AboutUs" className="text-decoration-none text-dark">
-                                Amount
+                                About Us
                             </Link>
                         </li>
                         <li className="mb-3">
                             <Link to="/ContactUs" className="text-decoration-none text-dark">
-                                Contact
+                                Contact Us
                             </Link>
                         </li>
                     </ul>

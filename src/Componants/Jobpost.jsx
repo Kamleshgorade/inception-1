@@ -1,10 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const JobPost = () => {
-    const getTodayDate = () => new Date().toISOString().split('T')[0];
+    //fetch and display Jobs in the table . 
+    const [gatejob, setGatejob] = useState([]);
+    console.log("fetch job list", gatejob);
 
+
+
+
+    // 🔁 Fetch jobs from backend on mount
+    useEffect(() => {
+        const fetchJobs = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/GetJobss');
+                setGatejob(response.data);
+
+            } catch (err) {
+                console.error('Error fetching GetJobss:', err);
+
+            }
+        };
+
+        fetchJobs();
+    }, []);
+
+    const getTodayDate = () => new Date().toISOString().split('T')[0];
     const [job, setJob] = useState({
         title: '',
         description: '',
@@ -210,6 +232,46 @@ const JobPost = () => {
                 </div>
                 <button type="submit" className="btn btn-primary w-100">Post Job</button>
             </form>
+
+            {/* JOB TABLE */}
+            <hr className="my-5" />
+            <h2 className="text-center mb-3">All Job Posts</h2>
+            <div className="table-responsive">
+                <table className="table table-bordered table-hover">
+                    <thead className="table-dark">
+                        <tr>
+                            <th>JOBID</th>
+                            <th>Title</th>
+                            <th>Company</th>
+                            <th>Location</th>
+                            <th>Posted Date</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {gatejob.map((job, index) => (
+                            <tr key={index}>
+                                <td>{job.JOBID}</td>
+                                <td>{job.JOBTITLE}</td>
+                                <td>{job.COMPANY}</td>
+                                <td>{job.LOCATION}</td>
+                                <td>{new Date(job.POSTEDDATE).toLocaleDateString()}</td>
+                                <td>
+                                    <button className="btn btn-sm btn-primary me-2">
+                                        <i className="fas fa-edit"></i>
+                                    </button>
+                                    <button className="btn btn-sm btn-danger">
+                                        <i className="fas fa-trash-alt"></i>
+                                    </button>
+                                </td>
+
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     );
 };

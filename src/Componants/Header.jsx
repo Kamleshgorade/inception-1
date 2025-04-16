@@ -133,6 +133,22 @@ function Header() {
                             Jobs
                         </Link>
                         <Link
+                            to="/Internships"
+                            className="d-block my-3 p-2 text-dark text-decoration-none"
+                            style={linkStyle}
+                            onClick={handleToggle} // Close the sidebar when clicked
+                        >
+                            Internship
+                        </Link>
+                        <Link
+                            to="/Government"
+                            className="d-block my-3 p-2 text-dark text-decoration-none"
+                            style={linkStyle}
+                            onClick={handleToggle} // Close the sidebar when clicked
+                        >
+                            Government
+                        </Link>
+                        <Link
                             to="/AboutUs"
                             className="d-block my-3 p-2 text-dark text-decoration-none"
                             style={linkStyle}
@@ -147,6 +163,14 @@ function Header() {
                             onClick={handleToggle} // Close the sidebar when clicked
                         >
                             Contact Us
+                        </Link>
+                        <Link
+                            to="/JobPost"
+                            className="d-block my-3 p-2 text-dark text-decoration-none"
+                            style={linkStyle}
+                            onClick={handleToggle} // Close the sidebar when clicked
+                        >
+                            JobPost Here
                         </Link>
                     </div>
 
