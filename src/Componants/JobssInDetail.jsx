@@ -10,7 +10,7 @@ const JobssInDetail = () => {
     useEffect(() => {
         const fetchJobDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/jobs/${jobId}`);
+                const response = await axios.get(`https://inception-1-production.up.railway.app//api/jobs/${jobId}`);
                 setJob(response.data); // Update state with fetched job details
             } catch (err) {
                 console.error('Error fetching job details:', err);

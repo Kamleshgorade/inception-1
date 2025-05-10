@@ -14,7 +14,7 @@ const JobPost = () => {
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/GetJobss');
+                const response = await axios.get('https://inception-1-production.up.railway.app//api/GetJobss');
                 setGatejob(response.data);
 
             } catch (err) {
@@ -72,7 +72,7 @@ const JobPost = () => {
                 formData.append('file', job.file);
 
                 const uploadResponse = await axios.post(
-                    'http://localhost:5000/api/upload',
+                    'https://inception-1-production.up.railway.app//api/upload',
                     formData,
                     { headers: { 'Content-Type': 'multipart/form-data' } }
                 );
@@ -96,7 +96,7 @@ const JobPost = () => {
                 FILEPATH: filePath, // Include the file path
             };
 
-            await axios.post('http://localhost:5000/api/jobs', payload);
+            await axios.post('https://inception-1-production.up.railway.app//api/jobs', payload);
             setMessage('Job posted successfully!');
             setJob({ title: '', description: '', company: '', location: '', postedDate: getTodayDate(), fulldescription: '', termsconditions: '', link: '', file: null, }); // Reset form
         } catch (err) {

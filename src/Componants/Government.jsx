@@ -13,7 +13,7 @@ function Government() {
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/jobs');
+                const response = await axios.get('https://inception-1-production.up.railway.app/api/jobs');
                 setJobs(response.data);
                 setFilteredJobs(response.data);
             } catch (err) {
